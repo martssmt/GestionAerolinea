@@ -18,13 +18,11 @@ public class Maleta {
         this.fondo = fondo;
     }
 
-        // getPeso (hecho)
+        // Getters (hecho)
 
     public double getPeso() {
         return peso;
     }
-
-        // getMedida (hecho)
 
     public int getMedidaTotal() {
         return ancho + alto + fondo;
@@ -33,14 +31,13 @@ public class Maleta {
         // excedeDePeso (hecho)
 
     public boolean excedeDePeso() {
-        if (this.peso>PESO_MAXIMO) return true;
-        else return false;
+        return this.peso > PESO_MAXIMO;
     }
 
         // excedeDeMedidas (hecho)
 
     public boolean excedeDeMedidas() {
-        if (this.getMedidaTotal()>MEDIDA_TOTAL_MAXIMA) return true;
-        else return false;
+        return this.getMedidaTotal() > MEDIDA_TOTAL_MAXIMA;
     }
+
 }

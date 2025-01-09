@@ -14,20 +14,15 @@ public class Asiento {
         this.pasajero = pasajero;
     }
 
-
-        // getFila (hecho)
+        // Getters (hecho)
 
     public int getFila() {
         return fila;
     }
 
-        // getButaca (hecho)
-
     public int getButaca() {
         return butaca;
     }
-
-        // getPasajero desde Pasajero (hecho)
 
     public Pasajero getPasajero() {
         return pasajero;

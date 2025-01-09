@@ -18,33 +18,26 @@ public class Pasajero {
 		this.maleta = maleta;
 	}
 
-		// getNombre (hecho)
+		// Getters (hecho)
 
 	public String getNombre() {
 		return nombre;
 	}
 
-		// getPasaporte (hecho)
-
 	public String getPasaporte() {
 		return pasaporte;
 	}
-
-		// getTelefono (hecho)
 	
 	public String getTelefono() {
 		return telefono;
 	}
 
-		// getEdad (hecho)
-
 	public int getEdad() {
 		return edad;
 	}
 
-		// getMaleta y que sea un objeto Maleta (hecho)
-
 	public Maleta getMaleta() {
 		return maleta;
 	}
+	
 }

@@ -7,7 +7,7 @@ public class Vuelo {
     private String fecha;
     private Avion avion;
 
-        // Vuelo (hecho)
+        // Constructor (hecho)
 
     public Vuelo(String paisOrigen, String paisDestino, String fecha, Avion avion) {
         this.paisOrigen = paisOrigen;
@@ -16,25 +16,19 @@ public class Vuelo {
         this.avion = avion;
     }
 
-        // getPaisOrigen (hecho)
+        // Getters (hecho)
 
     public String getPaisOrigen() {
         return paisOrigen;
     }
 
-        // getPaisDestino (hecho)
-
     public String getPaisDestino() {
         return paisDestino;
     }
 
-        // getFecha (hecho)
-
     public String getFecha() {
         return fecha;
     }
-
-        // getAvion (hecho)
 
     public Avion getAvion() {
         return avion;

@@ -1,6 +1,6 @@
 public class Maleta {
 
-    // Propiedades
+    // Propiedades:
 
     private final double PESO_MAXIMO = 23;
     private double peso;

@@ -1,6 +1,6 @@
 public class Vuelo {
 
-    // Propiedades
+    // Propiedades:
 
     private String paisOrigen;
     private String paisDestino;

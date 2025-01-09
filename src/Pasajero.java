@@ -1,6 +1,6 @@
 public class Pasajero {
 
-	// Propiedades
+	// Propiedades:
 
 	private String nombre;
 	private String pasaporte;

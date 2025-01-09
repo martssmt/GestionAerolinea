@@ -1,6 +1,6 @@
 public class Asiento {
 
-    // Propiedades
+    // Propiedades:
 
     private int fila;
     private int butaca;

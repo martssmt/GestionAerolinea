@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class GestionAerolinea {
 
-    // Propiedades (Dado ya)
+    // Propiedades: (Dado ya)
 
     private final int PRECIO_BILLETE_TURISTA = 350;     // Precio de un asiento de la clase turista
 

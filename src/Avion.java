@@ -11,7 +11,7 @@ public class Avion {
 				// Los arrays empiezan en 0, por tanto, la fila: 1, asiento: 1 de la clase business
 				// se corresponderá con asientoBusiness[0][0], siempre [fila-1][asiento-1]
 
-	//Propiedades
+	// Propiedades:
 
 	private final int ASIENTOS_X_FILA = 4;
 	private String modelo;

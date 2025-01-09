@@ -94,13 +94,13 @@ public class Avion {
 		}
 	}
 
-		// getAsientoTurista(hecho)
+		// getAsientoTurista (añadidos)
 
 	public Asiento getAsientoTurista(int fila, int butaca) {
 		return asientoTurista[fila][butaca];
 	}
 
-		// getAsientoBusiness(hecho)
+		// getAsientoBusiness (añadidos)
 
 	public Asiento getAsientoBusiness(int fila, int butaca) {
 		return asientoBusiness[fila][butaca];

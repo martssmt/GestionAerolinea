@@ -7,18 +7,12 @@ public class GestionAerolinea {
     // Propiedades: (Dado ya)
 
     private final int PRECIO_BILLETE_TURISTA = 350;     // Precio de un asiento de la clase turista
-
     private final int PRECIO_BILLETE_BUSINESS = 1500;   // Precio de un asiento de la clase business
-
     private final float DESCUENTO_INFANTIL = 15f;       // Se aplica un 15% de descuento a los menores de 15 años (<15)
-
     private final int NUM_AVIONES = 3;                  // Número de aviones de la aerolínea
-
     private Avion[] aviones;                            // Lista de aviones de la aerolínea
     private final int NUM_VUELOS = NUM_AVIONES;
-
     private Vuelo[] vuelos;                             // Lista de vuelos
-
     private boolean vuelosInicializados=false;          // Variable que indica si se han inicializado los datos de aviones y vuelos
 
     // Main (Dado ya)
@@ -43,57 +37,42 @@ public class GestionAerolinea {
 
     public void ejecutarOpcion(int opcion) {
                 // Ejecuta el código asociado a la opción
-        switch (opcion) {
-            case 1: // Inicializar aviones y vuelos
-                iniciarAvionesYVuelos();
-                vuelosInicializados=true;
-                System.out.println("Aviones y vuelos inicializados");
-                System.out.println("\n");
-                break;
-            case 2: // Reservar asiento en un vuelo
-                if (vuelosInicializados) {
+        if (!vuelosInicializados && opcion!=1) {
+            System.out.println("Error. Aviones y vuelos no inicializados");
+            System.out.println("\n");
+        } else {
+            switch (opcion) {
+                case 1: // Inicializar aviones y vuelos
+                    iniciarAvionesYVuelos();
+                    vuelosInicializados = true;
+                    System.out.println("Aviones y vuelos inicializados");
+                    System.out.println("\n");
+                    break;
+                case 2: // Reservar asiento en un vuelo
                     Avion vuelo2 = preguntarVuelo().getAvion();
                     Clase clase = preguntarClase();
                     reservarAsiento(vuelo2, clase);
-                }
-                if (!vuelosInicializados) System.out.println("Error. Aviones y vuelos no inicializados");
-                System.out.println("\n");
-                break;
-            case 3: // Mostrar el mapa de asientos
-                if (vuelosInicializados) {
+                    break;
+                case 3: // Mostrar el mapa de asientos
                     Avion vuelo3 = preguntarVuelo().getAvion();
                     vuelo3.mostrarMapaDeAsientos();
-                }
-                if (!vuelosInicializados) System.out.println("Error. Aviones y vuelos no inicializados");
-                System.out.println("\n");
-                break;
-            case 4: // Mostrar la lista de pasajeros
-                if (vuelosInicializados) {
+                    break;
+                case 4: // Mostrar la lista de pasajeros
                     Avion vuelo4 = preguntarVuelo().getAvion();
                     mostrarPasajeros(vuelo4);
-                }
-                if (!vuelosInicializados) System.out.println("Error. Aviones y vuelos no inicializados");
-                System.out.println("\n");
-                break;
-            case 5: // Mostrar pasajeros menores de 15 años
-                if (vuelosInicializados) {
+                    break;
+                case 5: // Mostrar pasajeros menores de 15 años
                     Avion vuelo5 = preguntarVuelo().getAvion();
                     mostrarPasajeros(vuelo5, 15);
-                }
-                if (!vuelosInicializados) System.out.println("Error. Aviones y vuelos no inicializados");
-                System.out.println("\n");
-                break;
-            case 6: // Mostrar ingresos del vuelo
-                if (vuelosInicializados) {
+                    break;
+                case 6: // Mostrar ingresos del vuelo
                     Avion vuelo6 = preguntarVuelo().getAvion();
                     mostrarIngresos(vuelo6);
-                }
-                if (!vuelosInicializados) System.out.println("Error. Aviones y vuelos no inicializados");
-                System.out.println("\n");
-                break;
-            default:
-                System.out.println("Fin de la ejecución.");
-                System.out.println("\n");
+                    break;
+                default:
+                    System.out.println("Fin de la ejecución.");
+                    System.out.println("\n");
+            }
         }
     }
 
@@ -163,14 +142,14 @@ public class GestionAerolinea {
         Asiento asientoLibre = null;
         int fila = -1;
         int butaca = -1;
-        int i = 1;
-        int j = 1;
+        int i = 0;
+        int j;
         boolean encontrado = false;
         if (clase == Clase.BUSINESS) {
             while (!encontrado && i <= avion.getNumeroFilas(Clase.BUSINESS)) {
-                j = 1;
-                while (!encontrado && j <= avion.getButacasPorFila()) {
-                    if (avion.getAsientoBusiness(i-1, j-1) == null) {
+                j = 0;
+                while (!encontrado && j < avion.getButacasPorFila()) {
+                    if (avion.getAsientoBusiness(i, j) == null) {
                         encontrado = true;
                         fila = i;
                         butaca = j;
@@ -181,9 +160,9 @@ public class GestionAerolinea {
             }
         } else {       // if (clase==Clase.TURISTA)
             while (!encontrado && i <= avion.getNumeroFilas(Clase.TURISTA)) {
-                j = 1;
-                while (!encontrado && j <= avion.getButacasPorFila()) {
-                    if (avion.getAsientoTurista(i-1, j-1) == null) {
+                j = 0;
+                while (!encontrado && j < avion.getButacasPorFila()) {
+                    if (avion.getAsientoTurista(i, j) == null) {
                         encontrado = true;
                         fila = i;
                         butaca = j;
@@ -202,7 +181,6 @@ public class GestionAerolinea {
             System.out.println("\nNo hay asientos libres en clase " + clase);
         }
     }
-
 
         // Mostrar Pasajeros (hecho)
 
@@ -239,8 +217,6 @@ public class GestionAerolinea {
                     System.out.println("\n...");
                 }
                 filaAnteriorVacia = true;
-            } else {
-                filaAnteriorVacia = false;
             }
         }
         System.out.println("\nLista de pasajeros de la clase Turista: ");
@@ -274,8 +250,6 @@ public class GestionAerolinea {
                     System.out.println("\n...");
                 }
                 filaAnteriorVacia = true;
-            } else {
-                filaAnteriorVacia = false;
             }
         }
     }

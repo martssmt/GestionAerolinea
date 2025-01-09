@@ -67,15 +67,15 @@ public class Avion {
 	public Asiento reservarAsiento(int fila, int butaca, Clase clase, Pasajero pasajero) {
 		Asiento asientoAsignado = null;
 		if (clase == Clase.BUSINESS) {
-			if (asientoBusiness[fila-1][butaca-1] == null) {
+			if (asientoBusiness[fila][butaca] == null) {
 				asientoAsignado = new Asiento(fila, butaca, pasajero);
-				asientoBusiness[fila-1][butaca-1] = asientoAsignado;
+				asientoBusiness[fila][butaca] = asientoAsignado;
 			}
 		}
 		else // Clase.TURISTA
-			if (asientoTurista[fila-1][butaca-1] == null) {
+			if (asientoTurista[fila][butaca] == null) {
 				asientoAsignado = new Asiento(fila, butaca, pasajero);
-				asientoTurista[fila-1][butaca-1] = asientoAsignado;
+				asientoTurista[fila][butaca] = asientoAsignado;
 			}
 		return asientoAsignado;
 	}

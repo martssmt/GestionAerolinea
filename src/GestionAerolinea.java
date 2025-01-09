@@ -93,7 +93,7 @@ public class GestionAerolinea {
         // Menu (hecho)
 
     public int menu() {
-        System.out.println("\tMenú");
+        System.out.println("\n\tMenú");
         System.out.println("1. Inicializar aviones y vuelos");
         System.out.println("2. Reservar asiento en un vuelo");
         System.out.println("3. Mostrar el mapa de asientos");
@@ -322,6 +322,6 @@ public class GestionAerolinea {
                 contTurA * PRECIO_BILLETE_TURISTA +
                 contTurI * (PRECIO_BILLETE_TURISTA * (1 - DESCUENTO_INFANTIL / 100))
         );
-        System.out.printf("\nEl avión "+avion.getModelo()+" proporciona ingresos de %,.2f €", ingresos);
+        System.out.printf("\nEl avión "+avion.getModelo()+" proporciona ingresos de %,.2f €\n", ingresos);
     }
 }

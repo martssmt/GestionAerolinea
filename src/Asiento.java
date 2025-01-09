@@ -32,8 +32,8 @@ public class Asiento {
 
     @Override
     public String toString() {
-        char letraButaca= (char) ('A' + (butaca-1));
-        return fila + String.valueOf(letraButaca);
+        char letraButaca= (char) ('A' + (butaca));
+        return (fila+1) + String.valueOf(letraButaca);
     }
 }
 
